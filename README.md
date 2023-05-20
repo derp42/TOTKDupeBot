@@ -9,11 +9,9 @@ controller, to read the state of a physical button connected between the
 Arduino’s pins 12 and ground, and to control the Arduino’s on-board LED as well
 as an external buzzer.
 
-Pokémon Sword/Shield automation
+TOTK dupe automation
 -------------------------------
-
-A sample program is provided to automate some tasks in Pokémon Sword/Shield.
-Details about this can be found in [this file](src/swsh/README.md).
+Tears of the Kingdom Dupe Bot
 
 How does it work?
 -----------------
@@ -31,7 +29,8 @@ from the 328P (using for instance the Arduino `Serial` library) are routed
 through the 16U2 before getting to the attached computer.
 
 Using an external ISCP programmer, it is possible to reprogram the 16U2 in
-order to make it simulate a USB Nintendo Switch controller and send inputs
+order to make it simulate a USB Nintendo 
+itch controller and send inputs
 directly. This is the approach used in [[1]]; with this configuration, the 328P
 is not used at all and can even be removed from the board. The main drawback,
 however, is that the 16U2 has limited RAM and Flash space, and cannot access
@@ -89,7 +88,7 @@ Building
 Running `make` will produce the following files:
  - `usb-iface.hex` is the program for the ATmega16U2 managing the USB
    interface.
- - `swsh.hex` is the Pokémon Sword/Shield automation program, running on the
+ - `totk.hex` is the Tears of the Kingdom automation program, running on the
    ATmega328P. You can create your own automation program and edit the
    `Makefile` to build it.
 
@@ -113,10 +112,10 @@ bump into the top I/O header, making it a tight fit). Flash the `usb-iface.hex`
 file, either manually or by running `make flash-usb-iface`.
 
 Unplug the programmer and connect it to the main microcontroller’s ISCP header.
-Flash the `swsh.hex` file, either manually or by running `make flash-swsh`.
+Flash the `totk.hex` file, either manually or by running `make flash-totk`.
 
 Use any programmer supported by avrdude, `avrdude -c ?`, by specifying
-`PROGRAMMER` when flashing. E.g. `make PROGRAMMER=usbtiny flash-swsh`.
+`PROGRAMMER` when flashing. E.g. `make PROGRAMMER=usbtiny flash-totk`.
 
 Factory restore
 ---------------
@@ -134,7 +133,8 @@ steps:
 
 The Arduino should then be programmable using its regular USB interface.
 
-[1]: https://github.com/Bowarcky/pkmn-swsh-automation-tools
-[2]: http://web.archive.org/web/20150802033750/http://hunt.net.nz/users/darran/
-[3]: https://github.com/abcminiuser/lufa
-[4]: http://github.com/arduino/ArduinoCore-avr/blob/master/firmwares/atmegaxxu2
+[1]: https://github.com/VinDuv/switch-arduino-controller
+[2]: https://github.com/Bowarcky/pkmn-swsh-automation-tools
+[3]: http://web.archive.org/web/20150802033750/http://hunt.net.nz/users/darran/
+[4]: https://github.com/abcminiuser/lufa
+[5]: http://github.com/arduino/ArduinoCore-avr/blob/master/firmwares/atmegaxxu2
