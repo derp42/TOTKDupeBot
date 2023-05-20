@@ -88,7 +88,7 @@ Building
 Running `make` will produce the following files:
  - `usb-iface.hex` is the program for the ATmega16U2 managing the USB
    interface.
- - `totk.hex` is the Pokémon Sword/Shield automation program, running on the
+ - `totk.hex` is the Tears of the Kingdom automation program, running on the
    ATmega328P. You can create your own automation program and edit the
    `Makefile` to build it.
 
